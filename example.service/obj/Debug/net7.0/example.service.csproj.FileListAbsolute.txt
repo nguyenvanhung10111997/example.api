@@ -1,0 +1,15 @@
+D:\Projects\Personal\RabbitMQ.Example\example.service\bin\Debug\net7.0\example.service.deps.json
+D:\Projects\Personal\RabbitMQ.Example\example.service\bin\Debug\net7.0\example.service.dll
+D:\Projects\Personal\RabbitMQ.Example\example.service\bin\Debug\net7.0\example.service.pdb
+D:\Projects\Personal\RabbitMQ.Example\example.service\bin\Debug\net7.0\example.domain.dll
+D:\Projects\Personal\RabbitMQ.Example\example.service\bin\Debug\net7.0\example.domain.pdb
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.csproj.AssemblyReference.cache
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.AssemblyInfoInputs.cache
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.AssemblyInfo.cs
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.csproj.CoreCompileInputs.cache
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.csproj.CopyComplete
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.dll
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\refint\example.service.dll
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\example.service.pdb
+D:\Projects\Personal\RabbitMQ.Example\example.service\obj\Debug\net7.0\ref\example.service.dll

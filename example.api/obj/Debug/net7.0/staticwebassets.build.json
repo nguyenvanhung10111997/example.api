@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rCMCG+LGA7b1fz62QS4IjpGmJCum3xyxWC3xLHCS170=",
+  "Source": "example.api",
+  "BasePath": "_content/example.api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

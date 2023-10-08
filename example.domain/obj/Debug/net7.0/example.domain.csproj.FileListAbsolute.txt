@@ -1,0 +1,12 @@
+D:\Projects\Personal\RabbitMQ.Example\example.domain\bin\Debug\net7.0\example.domain.deps.json
+D:\Projects\Personal\RabbitMQ.Example\example.domain\bin\Debug\net7.0\example.domain.dll
+D:\Projects\Personal\RabbitMQ.Example\example.domain\bin\Debug\net7.0\example.domain.pdb
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\example.domain.csproj.AssemblyReference.cache
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\example.domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\example.domain.AssemblyInfoInputs.cache
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\example.domain.AssemblyInfo.cs
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\example.domain.csproj.CoreCompileInputs.cache
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\example.domain.dll
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\refint\example.domain.dll
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\example.domain.pdb
+D:\Projects\Personal\RabbitMQ.Example\example.domain\obj\Debug\net7.0\ref\example.domain.dll
