@@ -25,4 +25,13 @@ namespace example.service.Features
             return await _userService.CreateAsync(user);
         }
     }
+
+    public class CreateUser : IRequest<bool>
+    {
+        public required string UserName { get; set; }
+
+        public string? EmailAddress { get; set; }
+
+        public int DepartmentId { get; set; }
+    }
 }

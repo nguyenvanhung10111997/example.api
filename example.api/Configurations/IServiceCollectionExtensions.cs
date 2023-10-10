@@ -1,10 +1,9 @@
 ﻿using Autofac;
 using example.domain.Interfaces;
 using example.infrastructure;
+using example.infrastructure.Configurations;
 using example.infrastructure.Repositories;
-using example.service.Configurations;
 using FluentValidation;
-using MediatR.Extensions.Autofac.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
 namespace example.api.Configurations
@@ -30,7 +29,8 @@ namespace example.api.Configurations
 
         public static void RegisterServiceDependeny(this ContainerBuilder builder)
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.GetName().Name.Contains("service"));
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(x => x.GetName().Name.Contains("service") || x.GetName().Name.Contains("infrastructure"));
 
             foreach (var assembly in assemblies)
             {

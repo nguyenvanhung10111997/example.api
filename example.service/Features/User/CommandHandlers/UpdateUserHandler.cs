@@ -26,4 +26,15 @@ namespace example.service.Features
             return await _userService.UpdateAsync(user);
         }
     }
+
+    public class UpdateUser : IRequest<bool>
+    {
+        public required int Id { get; set; }
+
+        public required string UserName { get; set; }
+
+        public string? EmailAddress { get; set; }
+
+        public int DepartmentId { get; set; }
+    }
 }

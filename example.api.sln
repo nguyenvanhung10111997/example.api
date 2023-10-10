@@ -5,11 +5,18 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "example.api", "example.api\example.api.csproj", "{531F85EE-B312-475B-AE51-D2F2B74ABA18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.domain", "..\example.api\example.domain\example.domain.csproj", "{64292644-FF3D-4FA5-AC2F-97EA1CD78422}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "example.domain", "example.domain\example.domain.csproj", "{64292644-FF3D-4FA5-AC2F-97EA1CD78422}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.infrastructure", "..\example.api\example.infrastructure\example.infrastructure.csproj", "{AA389136-EBC0-43B2-9ED7-3DDCBDFBE10F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "example.infrastructure", "example.infrastructure\example.infrastructure.csproj", "{AA389136-EBC0-43B2-9ED7-3DDCBDFBE10F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "example.service", "..\example.api\example.service\example.service.csproj", "{CBE2DACC-7911-4C41-8D3D-2418BBD069DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "example.service", "example.service\example.service.csproj", "{CBE2DACC-7911-4C41-8D3D-2418BBD069DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "example.consumer", "example.consumer\example.consumer.csproj", "{0B92601D-F54C-4B9B-BBFA-27F7E8FE3AA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C5F6ABCD-D2CD-4540-BBFD-B6D4F9836B70}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +40,10 @@ Global
 		{CBE2DACC-7911-4C41-8D3D-2418BBD069DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBE2DACC-7911-4C41-8D3D-2418BBD069DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBE2DACC-7911-4C41-8D3D-2418BBD069DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B92601D-F54C-4B9B-BBFA-27F7E8FE3AA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B92601D-F54C-4B9B-BBFA-27F7E8FE3AA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B92601D-F54C-4B9B-BBFA-27F7E8FE3AA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B92601D-F54C-4B9B-BBFA-27F7E8FE3AA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

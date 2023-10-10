@@ -1,5 +1,4 @@
 ﻿using example.infrastructure.Configurations;
-using example.service.Configurations;
 
 namespace example.api.Configurations
 {
@@ -16,7 +15,8 @@ namespace example.api.Configurations
             ApiConfig.URLConnection = new URLConnectionConfig();
             configuration.Bind("URLConnectionConfig", ApiConfig.URLConnection);
 
-            DbConnectionConfig.DefaultConnectionString = ApiConfig.Connection.DefaultConnectionString;
+            ApiConfig.Providers = new ProviderConfig();
+            configuration.Bind("Providers", ApiConfig.Providers);
         }
     }
 }
