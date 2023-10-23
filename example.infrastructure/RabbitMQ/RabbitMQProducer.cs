@@ -1,40 +1,45 @@
 ﻿using example.infrastructure.Configurations;
+using example.infrastructure.PollyRetry;
 using Newtonsoft.Json;
 using Polly;
 using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System.Text;
 
 namespace example.infrastructure.RabbitMQ
 {
     internal class RabbitMQProducer : IRabbitMQProducer
     {
-        public void SendProductMessage<T>(T message)
+        private readonly IPollyRetryHelper _pollyRetryHelper;
+
+        public RabbitMQProducer(IPollyRetryHelper pollyRetryHelper)
         {
-            var retry = Policy
-           .Handle<Exception>()
-           .WaitAndRetry(2, retryAttempt => TimeSpan.FromMinutes(Math.Pow(2, retryAttempt)));
+            _pollyRetryHelper = pollyRetryHelper;
+        }
 
-            retry.Execute(() =>
+        public void SendMessage<T>(T message)
+        {
+            var factory = new ConnectionFactory
             {
-                var factory = new ConnectionFactory
-                {
-                    HostName = ApiConfig.Providers.RabbitMQ.Host,
-                    UserName = ApiConfig.Providers.RabbitMQ.Username,
-                    Password = ApiConfig.Providers.RabbitMQ.Password
-                };
+                HostName = ApiConfig.Providers.RabbitMQ.Host,
+                UserName = ApiConfig.Providers.RabbitMQ.Username,
+                Password = ApiConfig.Providers.RabbitMQ.Password
+            };
 
-                var connection = factory.CreateConnection();
+            var connection = factory.CreateConnection();
 
-                using (var channel = connection.CreateModel())
-                {
-                    //declare the queue after mentioning name and a few property related to that
-                    channel.QueueDeclare("product", exclusive: false);
+            using (var channel = connection.CreateModel())
+            {
+                //declare the queue after mentioning name and a few property related to that
+                channel.ExchangeDeclare(exchange: "user_processing_exchange", type: ExchangeType.Fanout);
+                channel.QueueDeclare("user_queue", exclusive: false);
+                channel.QueueBind("user_queue", "user_processing_exchange", routingKey: "user");
 
-                    var json = JsonConvert.SerializeObject(message);
-                    var body = Encoding.UTF8.GetBytes(json);
-                    channel.BasicPublish(exchange: "", routingKey: "product", body: body);
-                }
-            });
+                var json = JsonConvert.SerializeObject(message);
+                var body = Encoding.UTF8.GetBytes(json);
+                Console.WriteLine(json);
+                channel.BasicPublish(exchange: "user_processing_exchange", routingKey: "user", body: body);
+            }
         }
 
         #region Destructor

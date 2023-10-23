@@ -8,19 +8,15 @@ namespace example.service.Features
     internal class GetUserByIdHandler : IRequestHandler<GetUserById, User?>
     {
         private readonly IUserService _userService;
-        private readonly IRabbitMQProducer _rabbitMQProducer;
 
-        public GetUserByIdHandler(IUserService userService,
-            IRabbitMQProducer rabbitMQProducer)
+        public GetUserByIdHandler(IUserService userService)
         {
             _userService = userService;
-            _rabbitMQProducer = rabbitMQProducer;
         }
 
         public async Task<User?> Handle(GetUserById request, CancellationToken cancellationToken)
         {
             var user = await _userService.GetByIdAsync(request.Id);
-            _rabbitMQProducer.SendProductMessage(user.UserName);
             return user;
         }
     }

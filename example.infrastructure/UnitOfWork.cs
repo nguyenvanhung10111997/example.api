@@ -8,6 +8,7 @@ namespace example.infrastructure
     {
         private readonly ExampleDbContext _context;
         private Dictionary<Type, object> _repositories;
+        private bool _disposedValue;
 
         public UnitOfWork(ExampleDbContext context)
         {
@@ -51,12 +52,17 @@ namespace example.infrastructure
 
         protected virtual void Dispose(bool disposing)
         {
-            if (disposing)
+            if (!_disposedValue)
             {
-                if (_context != null)
+                if (disposing)
                 {
-                    _context.Dispose();
+                    if (_context != null)
+                    {
+                        _context.Dispose();
+                    }
                 }
+
+                _disposedValue = true;
             }
         }
 

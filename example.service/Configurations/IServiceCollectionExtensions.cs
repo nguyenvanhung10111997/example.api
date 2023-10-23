@@ -5,8 +5,9 @@ using example.infrastructure.Configurations;
 using example.infrastructure.Repositories;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace example.api.Configurations
+namespace example.service.Configurations
 {
     public static class IServiceCollectionExtensions
     {

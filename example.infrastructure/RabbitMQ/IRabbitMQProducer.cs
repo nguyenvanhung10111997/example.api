@@ -8,6 +8,6 @@ namespace example.infrastructure.RabbitMQ
 {
     public interface IRabbitMQProducer : IDisposable
     {
-        public void SendProductMessage<T>(T message);
+        public void SendMessage<T>(T message);
     }
 }

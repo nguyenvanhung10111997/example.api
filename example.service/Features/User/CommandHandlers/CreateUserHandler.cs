@@ -1,4 +1,5 @@
 ﻿using example.domain.Entities;
+using example.infrastructure.RabbitMQ;
 using example.service.Interfaces;
 using MediatR;
 
@@ -6,11 +7,11 @@ namespace example.service.Features
 {
     internal class CreateUserHandler : IRequestHandler<CreateUser, bool>
     {
-        private readonly IUserService _userService;
+        private readonly IRabbitMQProducer _rabbitMQProducer;
 
-        public CreateUserHandler(IUserService userService)
+        public CreateUserHandler(IRabbitMQProducer rabbitMQProducer)
         {
-            _userService = userService;
+            _rabbitMQProducer = rabbitMQProducer;
         }
 
         public async Task<bool> Handle(CreateUser request, CancellationToken cancellationToken)
@@ -22,7 +23,9 @@ namespace example.service.Features
                 DepartmentId = request.DepartmentId
             };
 
-            return await _userService.CreateAsync(user);
+            _rabbitMQProducer.SendMessage(user);
+
+            return await Task.FromResult(true);
         }
     }
 

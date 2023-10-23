@@ -1,8 +1,10 @@
 ﻿using Autofac;
-using example.api.Configurations;
+using example.consumer.Configurations;
+using example.consumer.Features;
+using example.infrastructure.ContainerManager;
 using example.service.Configurations;
 
-namespace example.api
+namespace example.consumer
 {
     public class Startup
     {
@@ -22,11 +24,14 @@ namespace example.api
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+            services.AddHostedService<UserConsumerService>();
         }
         //this method is called by the runtime. when use register use AutofacServiceProviderFactory in function startup in program.cs
         public void ConfigureContainer(ContainerBuilder builder)
         {
             builder.RegisterServiceDependeny();
+
+            var containerManager = Engine.ContainerManager;
         }
         public void Configure(IApplicationBuilder app)
         {
