@@ -23,7 +23,7 @@ namespace example.service.Features
                 DepartmentId = request.DepartmentId
             };
 
-            _rabbitMQProducer.SendMessage(user);
+            _rabbitMQProducer.SendMessage(user, nameof(user));
 
             return await Task.FromResult(true);
         }

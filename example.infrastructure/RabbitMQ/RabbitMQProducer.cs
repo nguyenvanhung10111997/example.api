@@ -17,7 +17,7 @@ namespace example.infrastructure.RabbitMQ
             _pollyRetryHelper = pollyRetryHelper;
         }
 
-        public void SendMessage<T>(T message)
+        public void SendMessage<T>(T message, string topic)
         {
             var factory = new ConnectionFactory
             {
@@ -31,14 +31,14 @@ namespace example.infrastructure.RabbitMQ
             using (var channel = connection.CreateModel())
             {
                 //declare the queue after mentioning name and a few property related to that
-                channel.ExchangeDeclare(exchange: "user_processing_exchange", type: ExchangeType.Fanout);
-                channel.QueueDeclare("user_queue", exclusive: false);
-                channel.QueueBind("user_queue", "user_processing_exchange", routingKey: "user");
+                channel.ExchangeDeclare(exchange: $"{topic}_processing_exchange", type: ExchangeType.Fanout);
+                channel.QueueDeclare($"{topic}_queue", exclusive: false);
+                channel.QueueBind($"{topic}_queue", $"{topic}_processing_exchange", routingKey: topic);
 
                 var json = JsonConvert.SerializeObject(message);
                 var body = Encoding.UTF8.GetBytes(json);
                 Console.WriteLine(json);
-                channel.BasicPublish(exchange: "user_processing_exchange", routingKey: "user", body: body);
+                channel.BasicPublish(exchange: $"{topic}_processing_exchange", routingKey: topic, body: body);
             }
         }
 
