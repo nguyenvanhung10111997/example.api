@@ -2,6 +2,7 @@
 using example.domain.Interfaces;
 using example.infrastructure;
 using example.infrastructure.Configurations;
+using example.infrastructure.ContainerManager;
 using example.infrastructure.Repositories;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;

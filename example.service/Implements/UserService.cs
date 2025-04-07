@@ -1,5 +1,6 @@
 ﻿using example.domain.Entities;
 using example.domain.Interfaces;
+using example.infrastructure.ContainerManager;
 using example.service.Interfaces;
 
 namespace example.service.Implements
@@ -47,12 +48,16 @@ namespace example.service.Implements
         {
             try
             {
+                using (var x = Engine.ContainerManager.Resolve<IUserService>())
+                {
+
+                }
                 var userQuery = await _userRepository.GetAsync(x => x.Id == userId);
                 var userResult = userQuery.FirstOrDefault();
 
                 return userResult;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }

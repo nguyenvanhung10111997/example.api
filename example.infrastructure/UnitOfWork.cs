@@ -37,6 +37,8 @@ namespace example.infrastructure
             return executeResult;
         }
 
+        public DbContext GetContext() => _context;
+
         public IRepository<TEntity> GetRepository<TEntity>() where TEntity : class
         {
             if (_repositories.ContainsKey(typeof(TEntity)))

@@ -25,6 +25,8 @@ namespace example.infrastructure
          * Step 1: add-migration InitialExampleDB
          * Step 2: dotnet ef migrations add InitialExampleDB
          * Step 3: update-database -verbose
+         * Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Blogging;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
          */
     }
 }

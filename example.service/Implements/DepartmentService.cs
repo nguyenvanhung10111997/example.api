@@ -1,6 +1,7 @@
 ﻿using example.domain.Entities;
 using example.domain.Interfaces;
 using example.service.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace example.service.Implements
 {
@@ -50,6 +51,24 @@ namespace example.service.Implements
             {
                 throw ex;
             }
+        }
+
+        public async Task<Department> GetById(int id)
+        {
+            //Lazy Loading - 2 database roundtrips
+            var department1 = (await _departmentRepository.GetAsync(x => x.Id == id)).FirstOrDefault();
+            var users1 = department1.Users;
+
+            ////Eager Loading - 1 database roundtrip
+            var department2 = (await _departmentRepository.GetAsync(x => x.Id == id)).Include(x => x.Users).FirstOrDefault();
+            var users2 = department2.Users;
+
+            //Explicit Loading
+            var department3 = (await _departmentRepository.GetAsync(x => x.Id == id)).FirstOrDefault();
+            UnitOfWork.GetContext().Entry(department3).Collection(x => x.Users).Load();
+            //var users3 = department3.Users;
+
+            return department3;
         }
 
         protected override void Dispose(bool disposing)

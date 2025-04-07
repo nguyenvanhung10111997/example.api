@@ -23,6 +23,7 @@ namespace example.infrastructure.Repositories
                 ((IAuditEntity)entity).UpdatedDate = DateTime.UtcNow;
             }
             await _dbSet.AddAsync(entity);
+
             return entity;
         }
 
@@ -81,6 +82,13 @@ namespace example.infrastructure.Repositories
 
         public Task<IQueryable<T>> GetAsync(Expression<Func<T, bool>> expression)
         {
+            var departments = _context.Departments.Where(x => !x.IsDeleted);
+            var result = departments.Select(x => new
+            {
+                x,
+                totalRecord = departments.Count()
+            }).AsEnumerable();
+
             return Task.FromResult(_dbSet.Where(expression));
         }
 

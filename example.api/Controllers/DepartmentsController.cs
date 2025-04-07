@@ -24,5 +24,17 @@ namespace example.api.Controllers
             var result = await _departmentService.CreateAsync();
             return Ok(result);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var result = await _departmentService.GetById(id);
+            return Ok(result.DepartmentName);
+        }
     }
 }

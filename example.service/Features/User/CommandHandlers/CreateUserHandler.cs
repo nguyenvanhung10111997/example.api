@@ -1,6 +1,5 @@
 ﻿using example.domain.Entities;
 using example.infrastructure.RabbitMQ;
-using example.service.Interfaces;
 using MediatR;
 
 namespace example.service.Features

@@ -29,6 +29,7 @@ namespace example.infrastructure.PollyRetry
                         //log exception
                     });
 
+            var circuitBreaker = Policy.Handle<Exception>().CircuitBreaker(3, TimeSpan.FromSeconds(30));
             var policyResult = await fallbackPolicy.WrapAsync(retryPolicy).ExecuteAndCaptureAsync(action);
 
             if (hasFallback && ex != null)

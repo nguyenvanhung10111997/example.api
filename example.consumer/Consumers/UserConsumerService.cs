@@ -1,12 +1,11 @@
-﻿using RabbitMQ.Client.Events;
-using RabbitMQ.Client;
-using System.Text;
-using example.service.Interfaces;
-using Newtonsoft.Json;
+﻿using Autofac;
 using example.domain.Entities;
 using example.infrastructure.Configurations;
-using example.infrastructure.ContainerManager;
-using Autofac;
+using example.service.Interfaces;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Text;
 
 namespace example.consumer.Features
 {
